@@ -11,7 +11,9 @@ namespace WebAppFirst.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
+
     public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +25,23 @@ namespace WebAppFirst.Models
         public int OrderID { get; set; }
         public string CustomerID { get; set; }
         public Nullable<int> EmployeeID { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy\\-MM\\-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Tilauspvm")]
+
+        //<p>Nyt on @DateTime.Now.ToString(new CultureInfo("fi-FI"))</p>
+        //DateTime.Parse(stringToParse, "d.M.yyyy", CultureInfo.GetCultureInfo("fi-FI"))
+
+        //public DateTime? Date { get; set; }
         public Nullable<System.DateTime> OrderDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy\\-MM\\-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "RequiredDate")]
         public Nullable<System.DateTime> RequiredDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy\\-MM\\-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "ShippedDate")]
         public Nullable<System.DateTime> ShippedDate { get; set; }
         public Nullable<int> ShipVia { get; set; }
         public Nullable<decimal> Freight { get; set; }
