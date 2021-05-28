@@ -17,12 +17,15 @@ namespace WebAppFirst.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Region()
         {
+            this.Shippers = new HashSet<Shippers>();
             this.Territories = new HashSet<Territories>();
         }
     
         public int RegionID { get; set; }
         public string RegionDescription { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Shippers> Shippers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Territories> Territories { get; set; }
     }

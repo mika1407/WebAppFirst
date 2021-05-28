@@ -18,5 +18,14 @@ namespace WebAppFirst.Controllers
 
             return View(model);
         }
+
+        public ActionResult TuoteKuvat()
+        {
+            northwindEntities db = new northwindEntities();
+            List<Products> model = db.Products.ToList();
+            db.Dispose();
+
+            return View(model);
+        }
     }
 }
