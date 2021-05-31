@@ -22,3 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Lisäsin itse*/
+.table > thead > tr > th {
+    cursor: pointer;
+}
