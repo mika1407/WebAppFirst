@@ -2,16 +2,155 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous">
+
 
 <div class="jumbotron">
-    <h1>Northwind demo app</h1>
-    <p class="lead">Northwind-sovelluksen demo sivu.This is Northwind-app working demo.</p>
-    @for (int i = 0; i < 10; i++)
+    <h1>Northwind demo app / ASP.NET MVC-jatko</h1>
+
+    <p class="lead">Northwind-sovelluksen demo sivu. This is Northwind-app working demo.</p>
+    <p>BootsrtapLux vaihdettu bootstrap 4.5 versioon Bundle.Config sivulla!</p>
+    @*BS4/SVG -ikonit*@
+    <p><a href="https://asp.net" target="_blank" class="btn btn-primary btn-lg"><img src="~/Icons/star-fill.svg" alt="ASP.NET" width="32" height="32" title="ASP.NET"> ASP.NET-sivut &raquo;</a></p>
+    <p><a href="https://asp.net" target="_blank"><img src="~/Icons/star-fill.svg" alt="ASP.NET" width="32" height="32" title="ASP.NET"></a></p>
+    @*fas (Font Awesome) -ikonit*@
+    <p><a href="https://asp.net" target="_blank" class="btn btn-info fas fa-car">ASP.NET-sivut</a></p>
+    <h2><a href="https://asp.net" target="_blank" class="fas fa-car" title="ASP.NET-sivut"></a></h2>
+    <a class="btn btn-secondary fas fa-cloud" href="~/Products/index"> Tuotteet</a>
+
+    <button type="submit" class="btn btn-success">
+        <i class="fas fa-arrow-circle-right" style="color: #ff0000"></i>
+    </button>
+
+    @*Button to Open the Modal*@
+    <p>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+            Avaa modal
+        </button>
+    </p>
+
+    @*The Modal*@
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Kirjautuminen</h1>
+                </div>
+                <div class="modal-body">
+                    Modal body..
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kirjaudu</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Peruuta</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    @*Accordion*@
+    <div class="container">
+        <h2>Accordion Example</h2>
+        <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                        Collapsible Group Item #1
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                        Collapsible Group Item #2
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                        Collapsible Group Item #3
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+ 
+    @*<div class="container">
+        <h3>Tooltip Example</h3>
+        <p>The data-placement attribute specifies the tooltip position.</p>
+        <a href="#" data-toggle="tooltip" data-placement="top" title="Hooray!">Top</a>
+        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Hooray!">Bottom</a>
+        <a href="#" data-toggle="tooltip" data-placement="left" title="Hooray!">Left</a>
+        <a href="#" data-toggle="tooltip" data-placement="right" title="Hooray!">Right</a>
+    </div>
+  
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>*@
+
+
+    @for (int i = 0; i < 3; i++)
     {
         <p>@i</p>
     }
 
     <p>Nyt on @DateTime.Now</p>
     <p>Nyt on @DateTime.Now.ToString(new CultureInfo("fi-FI"))</p>
+</div>
+
+<br />
+<h3>Carousel</h3>
+@*Karuselli*@
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/6408291/pexels-photo-6408291.jpeg" alt="Los Angeles" width="1100" height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/7902185/pexels-photo-7902185.jpeg" alt="Chicago" width="1100" height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/4324338/pexels-photo-4324338.jpeg" alt="New York" width="1100" height="500">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
 </div>
 

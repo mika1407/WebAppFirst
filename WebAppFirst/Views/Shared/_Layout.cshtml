@@ -6,9 +6,18 @@
     <title>@ViewBag.Title - Northwind Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+  
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
 </head>
 <body>
-
+    @*<div class="container body-content">*@ @*oma lisäys!!!*@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -42,44 +51,23 @@
                             <a class="dropdown-item" href="~/Shippers/Yritys">Yritys</a>
                             <a class="dropdown-item" href="~/Order/Index">Orders</a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="~/Orders/Index">Tilaukset</a>
+                            <a class="dropdown-item" href="~/Orders/TilausOtsikot">Tilaus Otsikot</a>
                             <a class="dropdown-item" href="~/Home/Contact">Contact</a>
                         </div>
                     </li>
                 </ul>
                 @*<form class="d-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>*@
+                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>*@
             </div>
         </div>
     </nav>
 
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Northwind demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Koti", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Tietoa", "About", "Home")</li>
-                        <li>@Html.ActionLink("Kartta", "Map", "Home")</li>
-                        <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Tuotteet", "Index", "Products")</li>
-                        <li>@Html.ActionLink("Tilaukset", "Index", "Order")</li>
-                        <li>@Html.ActionLink("Rahtarit", "Index", "Shippers")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-
-    <div class="container body-content">
+    @*<div class="container body-content">*@
+    <div class="container-fluid">
         @RenderBody()
         <hr />
         <footer>
@@ -87,12 +75,22 @@
         </footer>
     </div>
 
+    @*@Scripts.Render("~/bundles/popper")*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
     @RenderSection("scripts", required: false)
 
-    <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
+    @*<script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>*@
     <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>*@
+
+    @*<script src="src/jquery-ui.min.js"></script>
+        <script src="src/bootstrap.bundle.min.js"></script>*@
+
+
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
@@ -100,15 +98,14 @@
         <script src="~/Scripts/globalize/globalize.js"></script>
         <script src="~/Scripts/globalize/cultures/globalize.culture.@(System.Threading.Thread.CurrentThread.CurrentCulture.Name).js"></script>
         <script>
-    $.validator.methods.number = function (value, element) {
-        return this.optional(element) ||
-            !isNaN(Globalize.parseFloat(value));
-    }
-    $(document).ready(function () {
-        Globalize.culture('@(System.Threading.Thread.CurrentThread.CurrentCulture.Name)');
-    });
-        </script>
-        <script>
+            $.validator.methods.number = function (value, element) {
+                return this.optional(element) ||
+                    !isNaN(Globalize.parseFloat(value));
+            }
+            $(document).ready(function () {
+                Globalize.culture('@(System.Threading.Thread.CurrentThread.CurrentCulture.Name)');
+            });
+
             jQuery.extend(jQuery.validator.methods, {
                 range: function (value, element, param) {
                     //Use the Globalization plugin to parse the value
@@ -123,6 +120,15 @@
                     Globalize.parseDate(value, "yyyy-MM-dd");
             }
         </script>
+
+
     }
+
+    @*@Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)*@
 </body>
 </html>

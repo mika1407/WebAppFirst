@@ -6,23 +6,18 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
+<p><a class="btn btn-primary" href="~/Order/Create/">Create New</a></p>
+<p><a class="btn btn-secondary" href="~/Orders/Ordersummary/">Tilausten yhteenveto</a></p>
+
 <table class="table table-striped">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequiredDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShippedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Freight)
-        </th>
+        <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+        <th>@Html.DisplayNameFor(model => model.RequiredDate)</th>
+        <th>@Html.DisplayNameFor(model => model.ShippedDate)</th>
+        <th>@Html.DisplayNameFor(model => model.Freight)</th>
         <th>
             @Html.DisplayNameFor(model => model.ShipName)
         </th>
