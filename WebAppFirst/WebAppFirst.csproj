@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -48,10 +47,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -139,13 +138,23 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShippersController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Alphabetical_list_of_products.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Categories.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category_Sales_for_1997.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Contacts.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Current_Product_List.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerDemographics.cs">
@@ -154,10 +163,16 @@
     <Compile Include="Models\Customers.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer_and_Suppliers_by_City.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Documentation.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Employees.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoices.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Logins.cs">
@@ -181,16 +196,49 @@
     <Compile Include="Models\Orders.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orders_Qry.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Order_Details.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Details_Extended.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Subtotals.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Products.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductsDailySales.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products_Above_Average_Price.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products_by_Category.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Sales_for_1997.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Region.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Sales_by_Category.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_Totals_by_Amount.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Shippers.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Summary_of_Sales_by_Quarter.cs">
+      <DependentUpon>northwind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Summary_of_Sales_by_Year.cs">
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Suppliers.cs">
@@ -203,6 +251,8 @@
       <DependentUpon>northwind.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CategorySalesClass.cs" />
+    <Compile Include="ViewModels\DailyProductSales.cs" />
     <Compile Include="ViewModels\OrderRows.cs" />
     <Compile Include="ViewModels\OrderSummaryData.cs" />
     <Compile Include="ViewModels\Yritykset.cs" />
@@ -216,6 +266,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstraplux.css" />
     <Content Include="Content\bootstraplux.min.css" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -1614,6 +1666,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
@@ -1778,6 +1832,8 @@
     <Content Include="Views\Orders\TilausOtsikot.cshtml" />
     <Content Include="Views\Orders\_TilausRivit.cshtml" />
     <Content Include="Views\Orders\_ModalEdit.cshtml" />
+    <Content Include="Views\Statistics\CategorySales.cshtml" />
+    <Content Include="Views\Products\_ProductSalesPerDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1827,11 +1883,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
